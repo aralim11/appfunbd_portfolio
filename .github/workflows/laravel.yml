@@ -14,8 +14,4 @@ jobs:
         with:
           server: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-<<<<<<< HEAD
           password: ${{ secrets.PASSWORD }}
-=======
-          password: ${{ secrets.PASSWORD }}
->>>>>>> 5914af59ded234408e0d74e8b2b34c519df2d288
