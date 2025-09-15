@@ -182,14 +182,14 @@ $url = "https://mehadi.me";
 <body class="home-minimal" data-bs-spy="scroll" data-bs-target="#site-navbar" x-data="appData">
     <!-- PRE LOADER -->
     <div class="preloader js-preloader flex-center">
-        <div class="dots">
+        {{-- <div class="dots">
             <div class="dot">
             </div>
             <div class="dot">
             </div>
             <div class="dot">
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- .page-loader -->
 
