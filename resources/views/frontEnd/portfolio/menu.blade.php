@@ -18,13 +18,13 @@
                     </li>
                     @endforeach
                 </ul> <!-- .navbar-nav -->
-                <ul class="nav-social list-inline">
+                {{-- <ul class="nav-social list-inline">
                     @foreach ($data['navBar']['socialMedia'] as $socialMedia)
                     <li class="list-inline-item"><a href="{{ $socialMedia['link'] }}" target="__blank"><i
                                 class="{{ $socialMedia['icon'] }}"></i></a></li>
                     @endforeach
-                </ul> <!-- .hero-social -->
-            </div> <!-- .collapse -->
+                </ul> --}}
+            </div>
         </div> <!-- .container -->
     </nav> <!-- .navbar -->
 </header> <!-- .site-header -->
