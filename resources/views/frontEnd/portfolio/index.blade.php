@@ -1,6 +1,6 @@
 <?php
-$imageUrl = "https://mehadi.me/image/mehadi.me_cover.png";
-$url = "https://mehadi.me";
+$imageUrl = 'https://mehadi.me/image/mehadi.me_cover.png';
+$url = 'https://mehadi.me';
 ?>
 
 <!DOCTYPE html>
@@ -11,13 +11,13 @@ $url = "https://mehadi.me";
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <!-- Favicon -->
-    <link href="{{asset('frontEnd/portfolio/image/favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
-    <link href="{{asset('frontEnd/portfolio/image/favicon.ico') }}" rel="icon" type="image/x-icon" />
+    <link href="{{ asset('frontEnd/portfolio/image/favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+    <link href="{{ asset('frontEnd/portfolio/image/favicon.ico') }}" rel="icon" type="image/x-icon" />
     <!-- Icons -->
-    <link href="{{asset('frontEnd/portfolio/css/pe-icon-7-stroke.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('frontEnd/portfolio/css/pe-helper.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('frontEnd/portfolio/css/bootstrap-icons.css') }}" rel="stylesheet" />
-    <link href="{{asset('frontEnd/portfolio/css/all.min.css' )}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('frontEnd/portfolio/css/pe-icon-7-stroke.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('frontEnd/portfolio/css/pe-helper.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('frontEnd/portfolio/css/bootstrap-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('frontEnd/portfolio/css/all.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -25,10 +25,10 @@ $url = "https://mehadi.me";
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Poppins:wght@700;900&amp;display=swap"
         rel="stylesheet" />
     <!-- CSS -->
-    <link href="{{asset('frontEnd/portfolio/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{asset('frontEnd/portfolio/css/swiper-bundle.min.css') }}" rel="stylesheet" />
-    <link href="{{asset('frontEnd/portfolio/css/leaflet.css') }}" rel="stylesheet" />
-    <link href="{{asset('frontEnd/portfolio/css/aos.css') }}" rel="stylesheet" />
+    <link href="{{ asset('frontEnd/portfolio/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('frontEnd/portfolio/css/swiper-bundle.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('frontEnd/portfolio/css/leaflet.css') }}" rel="stylesheet" />
+    <link href="{{ asset('frontEnd/portfolio/css/aos.css') }}" rel="stylesheet" />
     <link href="{{ asset('frontEnd/portfolio/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.7/cdn.js"
@@ -63,114 +63,6 @@ $url = "https://mehadi.me";
     <meta name="author" content="Mehadi Hasan">
     <meta name="keywords" content="RPA, Robomotion, UiPath, Automation, Software Engineer, Data Mining, Web Scraping">
     <meta name="theme-color" content="#ffffff">
-
-    <!-- Structured Data -->
-    {{-- <script type="application/ld+json">
-        {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "@id": "<?php echo $url; ?>#person",
-          "name": "Mehadi Hasan",
-          "url": "<?php echo $url; ?>",
-          "jobTitle": "Software Engineer",
-          "description": "{{ $data['description'] }}",
-          "image": "<?php echo $imageUrl; ?>",
-          "sameAs": [
-            "https://www.linkedin.com/in/mehadi-hasan/",
-            "https://github.com/mehadihasan"
-          ],
-          "knowsAbout": [
-            "Robotic Process Automation",
-            "UiPath",
-            "Robomotion",
-            "Data Mining",
-            "Web Scraping",
-            "Software Development"
-          ],
-          "worksFor": {
-            "@type": "Organization",
-            "name": "MEHADI.ME",
-            "url": "<?php echo $url; ?>"
-          }
-        },
-        {
-          "@type": "Organization",
-          "@id": "<?php echo $url; ?>#organization",
-          "name": "MEHADI.ME",
-          "url": "<?php echo $url; ?>",
-          "logo": "<?php echo $url; ?>/image/mehadi.me_logo.png",
-          "description": "{{ $data['description'] }}",
-          "founder": {
-            "@id": "<?php echo $url; ?>#person"
-          },
-          "sameAs": [
-            "https://www.linkedin.com/in/mehadi-hasan/",
-            "https://github.com/mehadihasan"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "<?php echo $url; ?>#website",
-          "url": "<?php echo $url; ?>",
-          "name": "MEHADI.ME",
-          "description": "{{ $data['description'] }}",
-          "publisher": {
-            "@id": "<?php echo $url; ?>#organization"
-          }
-        },
-        {
-          "@type": "Service",
-          "@id": "<?php echo $url; ?>#service",
-          "name": "Robotic Process Automation",
-          "provider": {
-            "@id": "<?php echo $url; ?>#person"
-          },
-          "serviceType": [
-            "RPA Development",
-            "Process Automation",
-            "Data Mining",
-            "Web Scraping"
-          ],
-          "areaServed": {
-            "@type": "Country",
-            "name": "Worldwide"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Automation Services",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "RPA Development",
-                  "description": "Custom Robotic Process Automation solutions using UiPath and Robomotion"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Data Mining",
-                  "description": "Extracting valuable insights from data using advanced mining techniques"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Web Scraping",
-                  "description": "Automated data extraction from websites with custom solutions"
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-    </script> --}}
 
     <style>
         .err_msg_box {
@@ -249,7 +141,7 @@ $url = "https://mehadi.me";
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
-        function sendMessage(){
+        function sendMessage() {
             const inputName = $('#inputName').val();
             const inputEmail = $('#inputEmail').val();
             const inputMessage = $('#inputMessage').val();
@@ -269,7 +161,7 @@ $url = "https://mehadi.me";
                 success: function(response) {
                     console.log(response);
 
-                    if(response.status == "success"){
+                    if (response.status == "success") {
                         rmvErrorClass('send_contact_form');
                         blankValue('send_contact_form');
                         $(".g_recaptcha_response").text('Message sent successfully');
@@ -285,31 +177,31 @@ $url = "https://mehadi.me";
         }
 
         /**
-        * blank input value
-        */
+         * blank input value
+         */
         function blankValue(class_id) {
             $('.' + class_id).find('select, textarea, input').val('');
             $(".multiple-select, .single-select").val('');
         }
 
         /**
-        * errorMsg
-        *
-        * @params error
-        * @return alert
-        */
+         * errorMsg
+         *
+         * @params error
+         * @return alert
+         */
         function errorMsg(error) {
-        $.each(error.responseJSON.errors, function(key, value) {
+            $.each(error.responseJSON.errors, function(key, value) {
                 $("." + key).text(value[0]);
                 $("#" + key).addClass("err_msg_box");
             });
         }
 
         /**
-        * rmvErrorClass
-        *
-        * @param class
-        */
+         * rmvErrorClass
+         *
+         * @param class
+         */
         function rmvErrorClass(class_id) {
             $('.' + class_id).find('.error_txt').text('');
             $('.' + class_id).find('select, textarea, input').removeClass('err_msg_box');

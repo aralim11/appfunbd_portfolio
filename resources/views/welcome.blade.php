@@ -208,7 +208,8 @@
                     <div class="service-icon">S</div>
                     <div class="service-info">
                         <h4 id="service-title">Our Services</h4>
-                        <p>Website development, web application, API integrations, website performance optimization and many more.</p>
+                        <p>Website development, web application, API integrations, website performance optimization, n8n
+                            automation etc.</p>
                     </div>
                 </div>
 
@@ -269,7 +270,8 @@
                     </div>
 
                     <div class="chip" role="listitem" title="WeChat">
-                        <small>Portfolio: <a href="https://appfunbd.com/portfolio" target="_blank" rel="noopener">appfunbd.com/portfolio</a></small>
+                        <small>Portfolio: <a href="{{ route('portfolio.index') }}" target="_blank"
+                                rel="noopener">appfunbd.com/portfolio</a></small>
                     </div>
                 </div>
             </aside>

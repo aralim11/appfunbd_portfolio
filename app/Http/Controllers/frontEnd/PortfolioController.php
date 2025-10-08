@@ -248,6 +248,23 @@ class PortfolioController extends Controller
                         ],
                     ]
                 ],
+                [
+                    'id' => 'automation',
+                    'title' => 'Automation',
+                    'project' => [
+                        [
+                            'id' => 'auto_1',
+                            'name' => 'FB Chat BOT',
+                            'link' => '#',
+                            'img' => [
+                                'thumb_img' => 'frontEnd/portfolio/image/fb_n8n.png',
+                                'main_img' => 'frontEnd/portfolio/image/fb_n8n.png',
+                            ],
+                            'integrations' => 'n8n, Webhook, Gemini AI, FB Graph API, Google Sheet API',
+                            'description' => 'Connected a Facebook chat webhook to analyze messages with Google Gemini AI, check product data in Google Sheets, and automatically return the product price — all in real time.',
+                        ],
+                    ]
+                ],
             ],
         ];
 
