@@ -1,5 +1,5 @@
 <?php
-$imageUrl = 'https://mehadi.me/image/mehadi.me_cover.png';
+$imageUrl = 'frontEnd/portfolio/image/cover.png';
 $url = 'https://appfunbd.com';
 ?>
 
@@ -49,15 +49,15 @@ $url = 'https://appfunbd.com';
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $data['title'] }}">
     <meta property="og:description" content="{{ $data['description'] }}">
-    <meta property="og:image" content="<?php echo $imageUrl; ?>">
+    <meta property="og:image" content="{{ asset('frontEnd/portfolio/image/cover.png') }}">
     <meta property="og:url" content="<?php echo $url; ?>">
-    <meta property="og:site_name" content="MEHADI.ME">
+    <meta property="og:site_name" content="appfunbd.com">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $data['title'] }}">
     <meta name="twitter:description" content="{{ $data['description'] }}">
-    <meta name="twitter:image" content="<?php echo $imageUrl; ?>">
+    <meta name="twitter:image" content="{{ asset('frontEnd/portfolio/image/cover.png') }}">
 
     <!-- Additional Meta Tags -->
     <meta name="author" content="Abdul Alim">
@@ -137,7 +137,7 @@ $url = 'https://appfunbd.com';
     <script src="{{ asset('frontEnd/portfolio/js/typer.js') }}"></script>
     <script src="{{ asset('frontEnd/portfolio/js/magicmouse.js') }}"></script>
     <script src="{{ asset('frontEnd/portfolio/js/script.js') }}"></script>
-    <script src="{{ asset('frontEnd/portfolio/js/data.js') }}"></script>
+    {{-- <script src="{{ asset('frontEnd/portfolio/js/data.js') }}"></script> --}}
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>

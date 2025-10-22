@@ -7,8 +7,8 @@
                         <small>
                             Hello, I'm
                         </small>
-                        <span x-text='person.fName'></span>
-                        <strong><span x-text='person.lName'></span></strong>
+                        <span>{{ $data['first_name'] }}</span>
+                        <strong><span>{{ $data['last_name'] }}</span></strong>
                     </h1>
                     <p>
                         <span class="typer" data-delay="100" data-deletedelay="1000"
