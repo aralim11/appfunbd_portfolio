@@ -80,6 +80,11 @@ class PortfolioController extends Controller
                     'title' => 'Bug Fixing & Optimization',
                     'description' => 'Identifying and resolving issues in PHP, Laravel, JavaScript, and jQuery codebases to improve functionality, performance, and user experience.',
                 ],
+                [
+                    'icon' => 'pe-7s-network',
+                    'title' => 'AI Integration & Automation',
+                    'description' => 'Designing and integrating automation workflows using n8n, APIs, and AI models to streamline business operations and enhance decision-making.',
+                ],
             ],
         ];
 
