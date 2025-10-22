@@ -1,6 +1,6 @@
 <?php
 $imageUrl = 'https://mehadi.me/image/mehadi.me_cover.png';
-$url = 'https://mehadi.me';
+$url = 'https://appfunbd.com';
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ $url = 'https://mehadi.me';
     <meta name="twitter:image" content="<?php echo $imageUrl; ?>">
 
     <!-- Additional Meta Tags -->
-    <meta name="author" content="Mehadi Hasan">
+    <meta name="author" content="Abdul Alim">
     <meta name="keywords" content="RPA, Robomotion, UiPath, Automation, Software Engineer, Data Mining, Web Scraping">
     <meta name="theme-color" content="#ffffff">
 

@@ -26,7 +26,7 @@
                             <div class="icon-box"><i class="pe-7s-study"></i></div>
                         </div>
                         <div class="content-wrapper">
-                            <h4>Ship Building & Welding <span>2010-2013</span></h4>
+                            <h4>Ship Building & Welding <span>2011-2013</span></h4>
                             <h5>Bangladesh Institute of Marine Technology</h5>
                         </div>
                     </li>
@@ -35,8 +35,8 @@
                             <div class="icon-box"><i class="pe-7s-study"></i></div>
                         </div>
                         <div class="content-wrapper">
-                            <h4>Ship Building & Welding <span>2010-2013</span></h4>
-                            <h5>Bangladesh Institute of Marine Technology</h5>
+                            <h4>SSC in Science <span>2006-2011</span></h4>
+                            <h5>Madhupur Shahid Smrity High School</h5>
                         </div>
                     </li>
 

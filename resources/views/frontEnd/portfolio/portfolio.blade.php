@@ -24,7 +24,7 @@
                                 <h3 class="title">{{ $project['name'] }}</h3>
                             </div>
                             <div class="icon-box"><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#{{ $project['id'] }}"><i class="bi bi-plus-lg"></i></a></div>
+                                    data-bs-target="#{{ $project['id'] }}"><i class="fa fa-link"></i></a></div>
 
                             <!-- Modal -->
                             <div class="modal fade" id="{{ $project['id'] }}" tabindex="-1"

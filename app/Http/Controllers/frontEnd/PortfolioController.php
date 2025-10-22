@@ -49,6 +49,7 @@ class PortfolioController extends Controller
             'PHP',
             'Laravel',
             'Python',
+            'n8n',
             'FastAPI',
             'JavaScript',
             'Wordpress'
@@ -143,7 +144,7 @@ class PortfolioController extends Controller
                         ],
                         [
                             'id' => 'solution_2',
-                            'name' => 'Complain Management System',
+                            'name' => 'Complain Management',
                             'link' => 'https://soft.appfunbd.com/complain_management/public/',
                             'img' => [
                                 'thumb_img' => 'frontEnd/portfolio/image/ticket.png',
@@ -263,6 +264,17 @@ class PortfolioController extends Controller
                             'integrations' => 'n8n, Webhook, Gemini AI, FB Graph API, Google Sheet API',
                             'description' => 'Connected a Facebook chat webhook to analyze messages with Google Gemini AI, check product data in Google Sheets, and automatically return the product price — all in real time.',
                         ],
+                        [
+                            'id' => 'auto_2',
+                            'name' => 'WhatsApp Chat BOT',
+                            'link' => '#',
+                            'img' => [
+                                'thumb_img' => 'frontEnd/portfolio/image/wa_n8n.png',
+                                'main_img' => 'frontEnd/portfolio/image/wa_n8n.png',
+                            ],
+                            'integrations' => 'WhatsApp, n8n, Gemini AI, Gemini Image Analyze, Gemini Transcribe Voice',
+                            'description' => 'Integrated WhatsApp, n8n, and Gemini AI (including Image Analyze and Voice Transcription) for intelligent, automated message processing and real-time responses.',
+                        ],
                     ]
                 ],
             ],
@@ -289,6 +301,7 @@ class PortfolioController extends Controller
                     'year' => '2006-2011',
                     'description' => '',
                 ],
+                
             ],
             'experience' => [
                 [
