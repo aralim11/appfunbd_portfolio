@@ -1,15 +1,16 @@
 <section class="contact-section section-block section-sep" id="contact-section">
     <div class="container">
         <div class="section-title">
-            <h2 x-text="contact.title"></h2>
-            <p class="lead" x-text="contact.subtitle"></p>
+            <h2>Contact Me</h2>
+            <p class="lead">
+                Let's Connect: Reach Out and Let's Make Things Happen
+            </p>
         </div>
         <!-- .section-title -->
 
         <!-- .row -->
         <div class="row">
-            <div style="display: none" class="col-lg-6" data-aos="fade-right" data-aos-delay="100"
-                data-aos-duration="1000">
+            <div style="display: none" class="col-lg-6" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
                 <div class="map-wrapper" id="mapwrapper">
                 </div>
             </div>
@@ -27,8 +28,8 @@
                             <label class="form-label visually-hidden" for="inputName">
                                 Name
                             </label>
-                            <input class="form-control" id="inputName" name="inputName" placeholder="Name*" required=""
-                                type="text" />
+                            <input class="form-control" id="inputName" name="inputName" placeholder="Name*"
+                                required="" type="text" />
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -46,8 +47,8 @@
                             Message
                         </label>
 
-                        <textarea class="form-control mb-3" id="inputMessage" name="inputMessage"
-                            placeholder="Your message here*" required=""></textarea>
+                        <textarea class="form-control mb-3" id="inputMessage" name="inputMessage" placeholder="Your message here*"
+                            required=""></textarea>
 
                         <div class="g-recaptcha" id="g_recaptcha"
                             data-sitekey="6LcCFEMrAAAAAAySEWu1v6_sOGTuIESMGzdEKDRV"></div>
