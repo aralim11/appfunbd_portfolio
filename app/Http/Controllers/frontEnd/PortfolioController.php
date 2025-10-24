@@ -24,7 +24,7 @@ class PortfolioController extends Controller
         $data['address'] = "Dhaka, Bangladesh";
         $data['phone'] = "+880 1675 342 612";
         $data['title'] = $data['full_name'] . " | " . $data['designation'];
-        $data['description'] = "I am a dedicated Software Engineer and Web Application Developer with expertise in custom PHP and Laravel development. I specialize in designing and building secure, scalable, and high-performance web applications tailored to meet specific business requirements. With a strong foundation in backend architecture, API development, and modern web standards, I deliver clean, maintainable code and reliable solutions that drive digital success.";
+        $data['description'] = "I am a dedicated Software Engineer and Web Application Developer with expertise in PHP, Laravel, and intelligent automation. I specialize in developing secure, scalable, and high-performance web applications integrated with AI and n8n-based workflow automation to streamline processes and enhance productivity. With a strong background in backend architecture, API development, and modern web technologies, I build smart, maintainable solutions that connect systems, automate data processing, and drive digital transformation.";
 
         ## navbar
         $data['navBar'] = [
@@ -279,6 +279,17 @@ class PortfolioController extends Controller
                             ],
                             'integrations' => 'WhatsApp, n8n, Gemini AI, Gemini Image Analyze, Gemini Transcribe Voice',
                             'description' => 'Integrated WhatsApp, n8n, and Gemini AI (including Image Analyze and Voice Transcription) for intelligent, automated message processing and real-time responses.',
+                        ],
+                        [
+                            'id' => 'auto_3',
+                            'name' => 'AI Knowledge System',
+                            'link' => '#',
+                            'img' => [
+                                'thumb_img' => 'frontEnd/portfolio/image/rag_n8n.png',
+                                'main_img' => 'frontEnd/portfolio/image/rag_n8n.png',
+                            ],
+                            'integrations' => 'n8n, Gemini AI, Google Drive, Supabase Vector Store, Postgres Chat Memory, Embeddings Google Gemini',
+                            'description' => 'Integrated a fully automated pipeline that connects Google Drive, Google Gemini, and Supabase Vector Store using n8n — making it possible to turn uploaded files into searchable, AI-readable knowledge!',
                         ],
                     ]
                 ],
