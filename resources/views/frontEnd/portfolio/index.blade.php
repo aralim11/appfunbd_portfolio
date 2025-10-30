@@ -31,10 +31,6 @@ $url = 'https://appfunbd.com';
     <link href="{{ asset('frontEnd/portfolio/css/aos.css') }}" rel="stylesheet" />
     <link href="{{ asset('frontEnd/portfolio/css/style.css') }}" rel="stylesheet" type="text/css" />
 
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.7/cdn.js"
-        integrity="sha512-RvlcAHDQH6uKcb1vPjIKzztHySEHd0T7gpAMZ/Mg22UjeKMJRlZtTLC2iBoZ3l+CSiW+TGapC6+F4YKZ9PKqVw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <title>
         {{ $data['title'] }}
     </title>
@@ -61,7 +57,8 @@ $url = 'https://appfunbd.com';
 
     <!-- Additional Meta Tags -->
     <meta name="author" content="Abdul Alim">
-    <meta name="keywords" content="RPA, Robomotion, UiPath, Automation, Software Engineer, Data Mining, Web Scraping">
+    <meta name="keywords"
+        content="Automation, Software Engineer, Web Scraping, n8n, Laravel, php, Webseite Development">
     <meta name="theme-color" content="#ffffff">
 
     <style>
@@ -137,7 +134,6 @@ $url = 'https://appfunbd.com';
     <script src="{{ asset('frontEnd/portfolio/js/typer.js') }}"></script>
     <script src="{{ asset('frontEnd/portfolio/js/magicmouse.js') }}"></script>
     <script src="{{ asset('frontEnd/portfolio/js/script.js') }}"></script>
-    {{-- <script src="{{ asset('frontEnd/portfolio/js/data.js') }}"></script> --}}
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>

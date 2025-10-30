@@ -11,82 +11,36 @@
             <div class="col-lg-6 education-block" data-aos="fade-right" data-aos-duration="1500">
                 <h3>My Education</h3>
                 <ul>
-                    <li class="d-flex align-items-start">
-                        <div class="icon-block">
-                            <div class="icon-box"><i class="pe-7s-study"></i></div>
-                        </div>
-                        <div class="content-wrapper">
-                            <h4>BSc in CSE <span>2013-2015</span></h4>
-                            <h5>Dhaka International University(DIU)</h5>
-                        </div>
-
-                    </li>
-                    <li class="d-flex align-items-start">
-                        <div class="icon-block">
-                            <div class="icon-box"><i class="pe-7s-study"></i></div>
-                        </div>
-                        <div class="content-wrapper">
-                            <h4>Ship Building & Welding <span>2011-2013</span></h4>
-                            <h5>Bangladesh Institute of Marine Technology</h5>
-                        </div>
-                    </li>
-                    <li class="d-flex align-items-start">
-                        <div class="icon-block">
-                            <div class="icon-box"><i class="pe-7s-study"></i></div>
-                        </div>
-                        <div class="content-wrapper">
-                            <h4>SSC in Science <span>2006-2011</span></h4>
-                            <h5>Madhupur Shahid Smrity High School</h5>
-                        </div>
-                    </li>
-
+                    @foreach ($data['resume']['education'] as $education)
+                        <li class="d-flex align-items-start">
+                            <div class="icon-block">
+                                <div class="icon-box"><i class="pe-7s-study"></i></div>
+                            </div>
+                            <div class="content-wrapper">
+                                <h4>{{ $education['degree'] }} <span>{{ $education['year'] }}</span></h4>
+                                <h5>{{ $education['institution'] }}</h5>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-lg-6 education-block" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="400">
                 <h3>My Experience</h3>
                 <ul>
-                    <li class="d-flex align-items-start">
-                        <div class="icon-block">
-                            <div class="icon-box"><i class="pe-7s-portfolio"></i></div>
-                        </div>
-                        <div class="content-wrapper">
-                            <h4>Software Engineer <span>2018-Present</span></h4>
-                            <h5>iHelpBD</h5>
-                            <p>
-                                Develop and maintain multiple solutions using Laravel, mySql, Jquery technologies,
-                                ensuring seamless functionality and user-friendly experiences.
-                            </p>
-                        </div>
-
-                    </li>
-                    <li class="d-flex align-items-start">
-                        <div class="icon-block">
-                            <div class="icon-box"><i class="pe-7s-portfolio"></i></div>
-                        </div>
-                        <div class="content-wrapper">
-                            <h4>Software Engineer <span>2018-2018</span></h4>
-                            <h5>99 IT LTD</h5>
-                            <p>
-                                Develop & optimize E-Commerce, MLM with affiliation, Task management Website using PHP,
-                                Laravel & Javascript.
-                            </p>
-                        </div>
-
-                    </li>
-                    <li class="d-flex align-items-start">
-                        <div class="icon-block">
-                            <div class="icon-box"><i class="pe-7s-portfolio"></i></div>
-                        </div>
-                        <div class="content-wrapper">
-                            <h4>Web Developer <span>2018-2018</span></h4>
-                            <h5>Saradunia Networking</h5>
-                            <p>
-                                Working as an intern in the web development team. I have learned a lot about
-                                web development.
-                            </p>
-                        </div>
-
-                    </li>
+                    @foreach ($data['resume']['experience'] as $experience)
+                        <li class="d-flex align-items-start">
+                            <div class="icon-block">
+                                <div class="icon-box"><i class="pe-7s-portfolio"></i></div>
+                            </div>
+                            <div class="content-wrapper">
+                                <h4>{{ $experience['position'] }} <span>{{ $experience['year'] }}</span></h4>
+                                <h5>{{ $experience['company'] }}</h5>
+                                <p>
+                                    {{ $experience['description'] }}
+                                </p>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

@@ -291,6 +291,28 @@ class PortfolioController extends Controller
                             'integrations' => 'n8n, Gemini AI, Google Drive, Supabase Vector Store, Postgres Chat Memory, Embeddings Google Gemini',
                             'description' => 'Integrated a fully automated pipeline that connects Google Drive, Google Gemini, and Supabase Vector Store using n8n — making it possible to turn uploaded files into searchable, AI-readable knowledge!',
                         ],
+                        [
+                            'id' => 'auto_4',
+                            'name' => 'n8n DataFlow',
+                            'link' => '#',
+                            'img' => [
+                                'thumb_img' => 'frontEnd/portfolio/image/datapipeline_n8n.png',
+                                'main_img' => 'frontEnd/portfolio/image/datapipeline_n8n.png',
+                            ],
+                            'integrations' => 'n8n, Laravel REST API, Google Sheets, n8n Loop, Custom Function',
+                            'description' => 'This workflow is a Robust API Data Ingestion Pipeline triggered manually to retrieve complex datasets. It executes an initial HTTP Request and then enters a Loop Over Items structure to handle API Pagination. Within the loop, it makes subsequent Pagination HTTP Requests and intelligently Merges Data until all pages are retrieved. Finally, the GetMergedData node consolidates the full dataset before appending or updating a target spreadsheet (Google Sheets) for centralized reporting and analysis.',
+                        ],
+                        [
+                            'id' => 'auto_5',
+                            'name' => 'Smart Email-to-Order Pipeline',
+                            'link' => '#',
+                            'img' => [
+                                'thumb_img' => 'frontEnd/portfolio/image/task_n8n.png',
+                                'main_img' => 'frontEnd/portfolio/image/task_n8n.png',
+                            ],
+                            'integrations' => 'Gmail Trigger, AI Agent, Google Gemini Chat Model, Get row(s) in sheet, StringToJSON, CreateOrders (Specific action: create: boardItem on Monday.com)',
+                            'description' => 'This workflow is an AI-powered email processing system that utilizes the Google Gemini Chat Model to analyze incoming emails from a Gmail Trigger. It intelligently extracts order details, potentially using data retrieved from Google Sheets for context, converts the output into structured data (StringToJSON), and automatically creates a new order/task item in a project management tool (monday.com - via the CreateOrders node).',
+                        ],
                     ]
                 ],
             ],
@@ -323,14 +345,13 @@ class PortfolioController extends Controller
                 [
                     'position' => 'Software Engineer',
                     'company' => 'iHelpBD',
-                    'year' => '2020 - Present',
-                    'description' => 'Develop and maintain multiple solutions using Laravel, mySql, Jquery technologies,
-                                ensuring seamless functionality and user-friendly experiences.',
+                    'year' => '2019 - Present',
+                    'description' => 'Develop and maintain multiple solutions using Laravel, mySql, Jquery technologies, Automation, n8n, ensuring seamless functionality and user-friendly experiences.',
                 ],
                 [
                     'position' => 'Software Engineer',
                     'company' => '99 IT LTD',
-                    'year' => '2018-2018',
+                    'year' => '2018-2019',
                     'description' => 'Develop & optimize E-Commerce, MLM with affiliation, Task management Website using PHP, Laravel & Javascript.',
                 ],
                 [

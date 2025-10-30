@@ -18,7 +18,8 @@
                 @foreach ($details['project'] as $project)
                     <div class="col-lg-4 col-md-6 grid-item {{ $details['id'] }}">
                         <div class="box">
-                            <img src="{{ asset($project['img']['thumb_img']) }}" alt="portfolio image">
+                            <img src="{{ asset($project['img']['thumb_img']) }}" style="height: 200px; width: 100%;"
+                                alt="portfolio image">
                             <div class="box-content">
                                 <span class="category">{{ $details['title'] }}</span>
                                 <h3 class="title">{{ $project['name'] }}</h3>
