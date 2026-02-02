@@ -395,6 +395,3 @@ class PortfolioController extends Controller
         ]);
     }
 }
-
-// 6LcCFEMrAAAAAAySEWu1v6_sOGTuIESMGzdEKDRV
-// 6LcCFEMrAAAAADxoeNFmy5emRgK_U56fGhrhlTL_
