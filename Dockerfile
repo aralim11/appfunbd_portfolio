@@ -20,17 +20,22 @@ RUN docker-php-ext-install \
     bcmath \
     gd
 
-# Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
 WORKDIR /var/www/html
+
+# Composer download
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
-RUN composer install --no-interaction --prefer-dist
+# Install dependencies
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-RUN chown -R www-data:www-data /var/www/html
+# Set permissions for Laravel
+RUN chmod -R 777 storage bootstrap/cache
 
-EXPOSE 9000
+# Set the entrypoint script
+RUN chmod +x ./docker/entrypoint.sh
+RUN sed -i 's/\r$//' ./docker/entrypoint.sh
 
-CMD ["php-fpm"]
+# Expose default port 9000 and start php-fpm server
+ENTRYPOINT ["./docker/entrypoint.sh"]
