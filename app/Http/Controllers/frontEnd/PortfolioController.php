@@ -383,9 +383,9 @@ class PortfolioController extends Controller
         ];
 
         $response = Http::withHeaders([
-            'AccessKey' => '395853453A544D40444738264E3D753B506E5761613C61743B4A6E355F613944533C5940403356524E45454844',
+            'AccessKey' => config('services.discord.access_key'),
             'Content-Type' => 'application/json'
-        ])->post('https://discord.com/api/webhooks/1374984555282436127/WpA9Mgl74Rv77DmoLRL_CP_Sr7dI_pLza0LygZCtcwjYQuxU4EXqkzvpVWKsZYaJ7mjG', [
+        ])->post('https://discord.com/api/webhooks/'.config('services.discord.client_id').'/'.config('services.discord.client_secret'), [
             'content' => json_encode($body),
         ]);
 
