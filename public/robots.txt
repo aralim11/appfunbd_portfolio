@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://appfunbd.com/sitemap.xml
