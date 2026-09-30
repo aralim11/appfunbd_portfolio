@@ -19,7 +19,7 @@
                     <div class="col-lg-4 col-md-6 grid-item {{ $details['id'] }}">
                         <div class="box">
                             <img src="{{ asset($project['img']['thumb_img']) }}" style="height: 200px; width: 100%;"
-                                alt="portfolio image">
+                                loading="lazy" alt="{{ $project['name'] }} — {{ $details['title'] }} project by AppFunBD">
                             <div class="box-content">
                                 <span class="category">{{ $details['title'] }}</span>
                                 <h3 class="title">{{ $project['name'] }}</h3>
@@ -38,7 +38,7 @@
                                             <div class="row item-content">
                                                 <div class="col-xl-12">
                                                     <img src="{{ asset($project['img']['main_img']) }}"
-                                                        alt="portfolio image">
+                                                        loading="lazy" alt="{{ $project['name'] }} — {{ $details['title'] }} project screenshot">
                                                 </div>
                                                 <div class="col-xl-8">
                                                     <div class="content-wrapper">

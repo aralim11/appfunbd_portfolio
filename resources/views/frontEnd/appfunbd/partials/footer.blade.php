@@ -1,4 +1,7 @@
-<?php $homeUrl = $homeUrl ?? url('/'); ?>
+<?php
+$homeUrl = $homeUrl ?? url('/');
+$footerServices = $footerServices ?? \App\Http\Controllers\frontEnd\ServiceController::all();
+?>
 <footer class="site-footer">
     <div class="container footer-grid">
         <div class="footer-brand">
@@ -6,7 +9,7 @@
                 <span class="logo">AF</span>
                 <span class="brand-name">AppFunBD</span>
             </a>
-            <p>Laravel &amp; PHP web development, WordPress websites, REST APIs, and n8n AI automation — built by
+            <p>Laravel &amp; PHP web development, WordPress websites, REST APIs, n8n AI automation, and bulk SMS — built by
                 Abdul Alim in Dhaka, Bangladesh.</p>
             <div class="footer-social" aria-label="Social profiles">
                 <a href="https://wa.me/8801675342612" target="_blank" rel="noopener noreferrer" title="WhatsApp">
@@ -31,7 +34,7 @@
         </div>
 
         <div class="footer-col">
-            <h4>Quick Links</h4>
+            <h3>Quick Links</h3>
             <ul>
                 <li><a href="{{ $homeUrl }}#services">Services</a></li>
                 <li><a href="{{ $homeUrl }}#products">Products</a></li>
@@ -43,7 +46,16 @@
         </div>
 
         <div class="footer-col">
-            <h4>Products</h4>
+            <h3>Services</h3>
+            <ul>
+                @foreach ($footerServices as $footerService)
+                    <li><a href="{{ route('services.show', $footerService['slug']) }}">{{ $footerService['title'] }}</a></li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Products</h3>
             <ul>
                 @foreach (($footerProducts ?? []) as $product)
                     <li><a href="{{ route('products.show', $product['slug']) }}">{{ $product['title'] }}</a></li>
@@ -52,7 +64,7 @@
         </div>
 
         <div class="footer-col">
-            <h4>Get In Touch</h4>
+            <h3>Get In Touch</h3>
             <ul class="footer-contact">
                 <li><a href="tel:+8801675342612">+880 1675 342 612</a></li>
                 <li><a href="mailto:aralim11@gmail.com">aralim11@gmail.com</a></li>

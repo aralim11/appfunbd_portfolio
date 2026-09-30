@@ -5,7 +5,8 @@
             <div class="col-xl-6 image-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="2000">
                 <div class="img-wrapper about-img-wrap" data-tilt data-tilt-max="10">
                     <img class="about-img-1 img-fluid" src="{{ asset('frontEnd/portfolio/image/IMG_E8007.png') }}"
-                        style="height: 634px; width: 508px;" alt="about image">
+                        style="height: 634px; width: 508px;" width="508" height="634" loading="lazy"
+                        alt="Abdul Alim — Software Engineer and Web Application Developer in Dhaka, Bangladesh">
                 </div>
             </div>
             <div class="col-xl-6 content-block" data-aos="fade-right" data-aos-delay="400" data-aos-duration="2000">

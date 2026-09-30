@@ -16,7 +16,7 @@ class PortfolioController extends Controller
     {
 
         $data['first_name'] = "Abdul";
-        $data['last_name'] = "Abdul";
+        $data['last_name'] = "Alim";
         $data['full_name'] = "Abdul Alim";
         $data['age'] = "29 Years";
         $data['email'] = "aralim11@gmail.com";
@@ -24,6 +24,8 @@ class PortfolioController extends Controller
         $data['address'] = "Dhaka, Bangladesh";
         $data['phone'] = "+880 1675 342 612";
         $data['title'] = $data['full_name'] . " | " . $data['designation'];
+        $data['meta_title'] = "Abdul Alim | Laravel & PHP Software Engineer Portfolio";
+        $data['meta_description'] = "Portfolio of Abdul Alim, a Dhaka-based Software Engineer building Laravel & PHP web apps, REST APIs, WordPress sites, and n8n AI automation.";
         $data['description'] = "I am a dedicated Software Engineer and Web Application Developer with expertise in PHP, Laravel, and intelligent automation. I specialize in developing secure, scalable, and high-performance web applications integrated with AI and n8n-based workflow automation to streamline processes and enhance productivity. With a strong background in backend architecture, API development, and modern web technologies, I build smart, maintainable solutions that connect systems, automate data processing, and drive digital transformation.";
 
         ## navbar

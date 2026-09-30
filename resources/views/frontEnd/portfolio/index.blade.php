@@ -1,10 +1,56 @@
 <?php
 $imageUrl = 'frontEnd/portfolio/image/cover.png';
 $url = 'https://appfunbd.com';
+$canonical = $url . '/portfolio';
+$ogImage = $url . '/' . $imageUrl;
+
+$schema = [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'ProfilePage',
+            '@id' => $canonical . '#webpage',
+            'url' => $canonical,
+            'name' => $data['meta_title'],
+            'description' => $data['meta_description'],
+            'isPartOf' => ['@id' => $url . '/#website'],
+            'mainEntity' => ['@id' => $canonical . '#person'],
+        ],
+        [
+            '@type' => 'Person',
+            '@id' => $canonical . '#person',
+            'name' => $data['full_name'],
+            'jobTitle' => 'Software Engineer | Web Application Developer',
+            'email' => 'mailto:' . $data['email'],
+            'telephone' => '+8801675342612',
+            'image' => $url . '/frontEnd/portfolio/image/IMG_E8007.png',
+            'url' => $canonical,
+            'worksFor' => ['@id' => $url . '/#organization'],
+            'address' => [
+                '@type' => 'PostalAddress',
+                'addressLocality' => 'Dhaka',
+                'addressCountry' => 'BD',
+            ],
+            'knowsAbout' => ['PHP', 'Laravel', 'WordPress', 'REST API', 'FastAPI', 'n8n', 'AI Automation', 'MySQL', 'JavaScript'],
+            'sameAs' => [
+                'https://www.linkedin.com/in/aralim11/',
+                'https://github.com/aralim11',
+            ],
+        ],
+        [
+            '@type' => 'BreadcrumbList',
+            '@id' => $canonical . '#breadcrumb',
+            'itemListElement' => [
+                ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => $url],
+                ['@type' => 'ListItem', 'position' => 2, 'name' => 'Portfolio', 'item' => $canonical],
+            ],
+        ],
+    ],
+];
 ?>
 
 <!DOCTYPE html>
-<html lang="zxx" xmlns:x-bind="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
     <!-- Meta -->
@@ -31,35 +77,37 @@ $url = 'https://appfunbd.com';
     <link href="{{ asset('frontEnd/portfolio/css/aos.css') }}" rel="stylesheet" />
     <link href="{{ asset('frontEnd/portfolio/css/style.css') }}" rel="stylesheet" type="text/css" />
 
-    <title>
-        {{ $data['title'] }}
-    </title>
-    <meta name="description" content="{{ $data['description'] }}">
+    <title>{{ $data['meta_title'] }}</title>
+    <meta name="description" content="{{ $data['meta_description'] }}">
     <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="<?php echo $url; ?>" />
+    <link rel="canonical" href="{{ $canonical }}" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ $data['title'] }}">
-    <meta property="og:description" content="{{ $data['description'] }}">
-    <meta property="og:image" content="{{ asset('frontEnd/portfolio/image/cover.png') }}">
-    <meta property="og:url" content="<?php echo $url; ?>">
-    <meta property="og:site_name" content="appfunbd.com">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="{{ $data['meta_title'] }}">
+    <meta property="og:description" content="{{ $data['meta_description'] }}">
+    <meta property="og:image" content="{{ $ogImage }}">
+    <meta property="og:url" content="{{ $canonical }}">
+    <meta property="og:site_name" content="AppFunBD">
+    <meta property="og:locale" content="en_US">
+    <meta property="profile:first_name" content="Abdul">
+    <meta property="profile:last_name" content="Alim">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $data['title'] }}">
-    <meta name="twitter:description" content="{{ $data['description'] }}">
-    <meta name="twitter:image" content="{{ asset('frontEnd/portfolio/image/cover.png') }}">
+    <meta name="twitter:title" content="{{ $data['meta_title'] }}">
+    <meta name="twitter:description" content="{{ $data['meta_description'] }}">
+    <meta name="twitter:image" content="{{ $ogImage }}">
 
     <!-- Additional Meta Tags -->
     <meta name="author" content="Abdul Alim">
     <meta name="keywords"
-        content="Automation, Software Engineer, Web Scraping, n8n, Laravel, php, Webseite Development">
+        content="Abdul Alim, Software Engineer Bangladesh, Laravel developer, PHP developer Dhaka, web application developer, n8n automation, REST API developer, WordPress developer, portfolio">
     <meta name="theme-color" content="#ffffff">
+
+    <script type="application/ld+json">{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
 
     <style>
         .err_msg_box {

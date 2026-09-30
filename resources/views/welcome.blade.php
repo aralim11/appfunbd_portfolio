@@ -2,18 +2,13 @@
 $url = 'https://appfunbd.com';
 $homeUrl = url('/');
 $imageUrl = 'frontEnd/portfolio/image/appfunbd_cover.png';
-$title = 'AppFunBD | Laravel, PHP & WordPress Web Developer in Bangladesh';
-$description = 'AppFunBD (Abdul Alim) — Software Engineer in Dhaka, Bangladesh building Laravel & PHP web apps, WordPress websites, REST APIs, and n8n AI automation. Fast delivery, 24/7 support.';
-$keywords = 'AppFunBD, Abdul Alim, web developer Bangladesh, Laravel developer, PHP developer Dhaka, WordPress developer, REST API development, n8n automation expert, AI automation developer, FastAPI developer, software engineer Bangladesh, website development company, freelance web developer Dhaka, Elementor WordPress developer, web application development, website maintenance service, CRM software Bangladesh, lead management system, POS software, point of sale system, order management system, call center software, complaint management system, custom business software solution';
+$title = 'AppFunBD | Laravel, PHP & WordPress Developer in Bangladesh';
+$description = 'AppFunBD (Abdul Alim) — Dhaka software engineer building Laravel & PHP web apps, WordPress sites, REST APIs, n8n AI automation & bulk SMS services.';
+$keywords = 'AppFunBD, Abdul Alim, web developer Bangladesh, Laravel developer, PHP developer Dhaka, WordPress developer, REST API development, n8n automation expert, AI automation developer, FastAPI developer, software engineer Bangladesh, website development company, freelance web developer Dhaka, Elementor WordPress developer, web application development, website maintenance service, CRM software Bangladesh, lead management system, POS software, point of sale system, order management system, call center software, complaint management system, custom business software solution, bulk SMS service Bangladesh, SMS marketing, SMS gateway, SMS API integration, OTP SMS, masking SMS, non-masking SMS, transactional SMS, promotional SMS';
 
-$services = [
-    ['icon' => 'code', 'title' => 'Laravel & PHP Web Development', 'description' => 'Custom Laravel and PHP web applications built for performance, security, and scalability — from business websites to complex internal tools.'],
-    ['icon' => 'wordpress', 'title' => 'WordPress Website Development', 'description' => 'Responsive WordPress websites using Elementor, custom themes, and plugin integrations for businesses that need a fast, professional online presence.'],
-    ['icon' => 'api', 'title' => 'REST API Development & Integration', 'description' => 'Secure, well-documented REST APIs with Laravel Sanctum, JWT, and FastAPI that connect your apps, websites, and third-party services.'],
-    ['icon' => 'automation', 'title' => 'n8n & AI Workflow Automation', 'description' => 'End-to-end automation with n8n, Google Gemini AI, WhatsApp, Facebook, and webhooks to eliminate repetitive tasks and speed up operations.'],
-    ['icon' => 'bug', 'title' => 'Bug Fixing & Performance Optimization', 'description' => 'Diagnosing and fixing issues in PHP, Laravel, JavaScript, and jQuery codebases while improving speed, stability, and user experience.'],
-    ['icon' => 'support', 'title' => 'Website Maintenance & Support', 'description' => 'Ongoing maintenance, security updates, and feature enhancements so your website keeps running smoothly around the clock.'],
-];
+$services = collect(\App\Http\Controllers\frontEnd\ServiceController::all())
+    ->map(fn ($item) => $item + ['description' => $item['summary']])
+    ->all();
 
 $products = collect(\App\Http\Controllers\frontEnd\ProductController::catalogue())
     ->map(fn ($item, $slug) => $item + ['slug' => $slug, 'description' => $item['meta_description']])
@@ -48,8 +43,8 @@ $schema = [
             '@type' => 'ProfessionalService',
             '@id' => $url . '/#organization',
             'name' => 'AppFunBD',
-            'image' => asset($imageUrl),
-            'logo' => asset($imageUrl),
+            'image' => $url . '/' . $imageUrl,
+            'logo' => $url . '/' . $imageUrl,
             'url' => $url,
             'telephone' => '+8801675342612',
             'email' => 'aralim11@gmail.com',
@@ -73,16 +68,34 @@ $schema = [
                 'https://www.linkedin.com/in/aralim11/',
                 'https://github.com/aralim11',
             ],
-            'makesOffer' => array_map(function ($service) {
-                return [
-                    '@type' => 'Offer',
-                    'itemOffered' => [
-                        '@type' => 'Service',
-                        'name' => $service['title'],
-                        'description' => $service['description'],
-                    ],
-                ];
-            }, array_merge($services, $products)),
+            'makesOffer' => array_merge(
+                array_map(function ($service) use ($url) {
+                    return [
+                        '@type' => 'Offer',
+                        'itemOffered' => [
+                            '@type' => 'Service',
+                            'name' => $service['title'],
+                            'url' => $url . '/services/' . $service['slug'],
+                            'description' => $service['description'],
+                            'serviceType' => $service['service_type'],
+                            'areaServed' => $service['area_served'],
+                            'provider' => ['@id' => $url . '/#organization'],
+                        ],
+                    ];
+                }, $services),
+                array_map(function ($product) use ($url) {
+                    return [
+                        '@type' => 'Offer',
+                        'itemOffered' => [
+                            '@type' => 'Service',
+                            'name' => $product['title'],
+                            'url' => $url . '/products/' . $product['slug'],
+                            'description' => $product['description'],
+                            'provider' => ['@id' => $url . '/#organization'],
+                        ],
+                    ];
+                }, $products)
+            ),
         ],
         [
             '@type' => 'WebSite',
@@ -90,6 +103,19 @@ $schema = [
             'url' => $url,
             'name' => 'AppFunBD',
             'publisher' => ['@id' => $url . '/#organization'],
+        ],
+        [
+            '@type' => 'ItemList',
+            '@id' => $url . '/#services',
+            'name' => 'AppFunBD Services',
+            'itemListElement' => array_values(array_map(function ($service, $index) use ($url) {
+                return [
+                    '@type' => 'ListItem',
+                    'position' => $index + 1,
+                    'name' => $service['title'],
+                    'url' => $url . '/services/' . $service['slug'],
+                ];
+            }, $services, array_keys($services))),
         ],
         [
             '@type' => 'ItemList',
@@ -121,7 +147,7 @@ $schema = [
                         '@type' => 'CreativeWork',
                         'name' => $project['name'],
                         'url' => $project['link'] !== '#' ? $project['link'] : $url . '/portfolio',
-                        'image' => asset('frontEnd/portfolio/image/' . $project['img']),
+                        'image' => $url . '/frontEnd/portfolio/image/' . $project['img'],
                         'description' => $project['description'],
                         'keywords' => implode(', ', $project['stack']),
                     ],
@@ -158,7 +184,8 @@ $schema = [
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?php echo $title; ?>">
     <meta property="og:description" content="<?php echo $description; ?>">
-    <meta property="og:image" content="{{ asset($imageUrl) }}">
+    <meta property="og:image" content="{{ $url . '/' . $imageUrl }}">
+    <meta property="og:image:alt" content="AppFunBD — Web Development & Automation in Bangladesh">
     <meta property="og:url" content="<?php echo $url; ?>">
     <meta property="og:site_name" content="AppFunBD">
     <meta property="og:locale" content="en_US">
@@ -167,7 +194,7 @@ $schema = [
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo $title; ?>">
     <meta name="twitter:description" content="<?php echo $description; ?>">
-    <meta name="twitter:image" content="{{ asset($imageUrl) }}">
+    <meta name="twitter:image" content="{{ $url . '/' . $imageUrl }}">
 
     <!-- Additional Meta Tags -->
     <meta name="author" content="Abdul Alim">
@@ -185,26 +212,90 @@ $schema = [
 
     <main id="main-content">
         <!-- HERO -->
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-bg" aria-hidden="true">
+                <span class="hero-blob hero-blob--one"></span>
+                <span class="hero-blob hero-blob--two"></span>
+                <span class="hero-blob hero-blob--three"></span>
+                <span class="hero-grid-pattern"></span>
+            </div>
+
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Web Development &amp; Automation Studio in Dhaka, Bangladesh</p>
-                    <h1>Laravel &amp; PHP Web Development, WordPress Sites, and n8n AI Automation — Built by Abdul Alim</h1>
-                    <p class="lead">
-                        AppFunBD helps businesses ship fast, secure, and scalable software: custom Laravel &amp; PHP
-                        web applications, WordPress websites, REST API integrations, and n8n-powered AI automation
-                        that removes repetitive manual work.
+                    <p class="hero-badge">
+                        <span class="hero-badge-dot" aria-hidden="true"></span>
+                        Web Development &amp; Automation Studio in Dhaka, Bangladesh
                     </p>
+
+                    <h1 id="hero-title">
+                        Laravel &amp; PHP Web Apps, WordPress Sites &amp;
+                        <span class="text-gradient">n8n AI Automation</span>
+                    </h1>
+
+                    <p class="lead">
+                        AppFunBD helps businesses ship fast, secure, and scalable software — custom Laravel &amp; PHP
+                        web applications, WordPress websites, REST API integrations, bulk SMS, and n8n-powered AI
+                        automation that removes repetitive manual work.
+                    </p>
+
                     <div class="hero-actions">
-                        <a class="btn-main" href="#contact">Get a Free Quote</a>
-                        <a class="btn-outline" href="#work-samples">View Work Samples</a>
+                        <a class="btn-main btn-glow" href="#contact">
+                            Get a Free Quote
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <a class="btn-outline btn-ghost" href="#work-samples">View Work Samples</a>
                     </div>
+
+                    <div class="hero-author">
+                        <span class="hero-avatar" aria-hidden="true">AA</span>
+                        <div>
+                            <strong>Built by Abdul Alim</strong>
+                            <span>Software Engineer &amp; Web Application Developer</span>
+                        </div>
+                    </div>
+
                     <ul class="hero-highlights">
                         <li>Fast delivery cycles</li>
                         <li>Transparent pricing</li>
                         <li>Post-launch support</li>
                     </ul>
                 </div>
+
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="code-window">
+                        <div class="code-window-bar">
+                            <span></span><span></span><span></span>
+                            <em>routes/web.php</em>
+                        </div>
+<pre class="code-window-body"><span class="c-com">// Capture a lead, notify by SMS, trigger automation</span>
+<span class="c-cls">Route</span>::<span class="c-fn">post</span>(<span class="c-str">'/leads'</span>, <span class="c-kw">function</span> (<span class="c-cls">Request</span> <span class="c-var">$r</span>) {
+    <span class="c-var">$lead</span> = <span class="c-cls">Lead</span>::<span class="c-fn">create</span>(<span class="c-var">$r</span>-&gt;<span class="c-fn">validated</span>());
+
+    <span class="c-cls">Sms</span>::<span class="c-fn">send</span>(<span class="c-var">$lead</span>-&gt;phone, <span class="c-str">'Thanks! We will call you.'</span>);
+    <span class="c-cls">N8n</span>::<span class="c-fn">trigger</span>(<span class="c-str">'new-lead'</span>, <span class="c-var">$lead</span>);
+
+    <span class="c-kw">return</span> <span class="c-fn">response</span>()-&gt;<span class="c-fn">json</span>([<span class="c-str">'status'</span> =&gt; <span class="c-str">'ok'</span>]);
+});</pre>
+                    </div>
+
+                    <div class="float-card float-card--top">
+                        <span class="float-icon float-icon--green">&#10003;</span>
+                        <div><strong>Deployed</strong><small>Laravel app is live</small></div>
+                    </div>
+                    <div class="float-card float-card--mid">
+                        <span class="float-icon float-icon--violet">&#9889;</span>
+                        <div><strong>n8n workflow ran</strong><small>AI reply sent in 0.8s</small></div>
+                    </div>
+                    <div class="float-card float-card--bottom">
+                        <span class="float-icon float-icon--blue">&#9993;</span>
+                        <div><strong>SMS delivered</strong><small>1,250 customers reached</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
                 <div class="hero-stats" aria-label="Experience summary">
                     @foreach ($stats as $stat)
                         <div class="stat-card">
@@ -220,16 +311,17 @@ $schema = [
         <section class="services" id="services" aria-labelledby="services-title">
             <div class="container">
                 <div class="section-title">
-                    <h2 id="services-title">Web Development &amp; Automation Services</h2>
-                    <p class="lead">Everything you need to launch, run, and automate your web presence — under one roof.</p>
+                    <h2 id="services-title">Web Development, Automation &amp; Bulk SMS Services</h2>
+                    <p class="lead">Everything you need to launch, run, automate, and reach your customers by SMS — under one roof.</p>
                 </div>
                 <div class="service-grid">
                     @foreach ($services as $service)
-                        <div class="service-card">
+                        <article class="service-card">
                             <span class="service-icon" aria-hidden="true">{{ strtoupper(substr($service['title'], 0, 1)) }}</span>
-                            <h3>{{ $service['title'] }}</h3>
+                            <h3><a href="{{ route('services.show', $service['slug']) }}">{{ $service['title'] }}</a></h3>
                             <p>{{ $service['description'] }}</p>
-                        </div>
+                            <a href="{{ route('services.show', $service['slug']) }}" class="product-link service-link" aria-label="Learn more about {{ $service['title'] }}">Learn More &rarr;</a>
+                        </article>
                     @endforeach
                 </div>
             </div>
@@ -340,9 +432,9 @@ $schema = [
                         <div class="service" aria-labelledby="service-title">
                             <div class="service-icon">S</div>
                             <div class="service-info">
-                                <h4 id="service-title">Our Services</h4>
+                                <h3 id="service-title">Our Services</h3>
                                 <p>Website development, web application, API integrations, website performance optimization, n8n
-                                    automation etc.</p>
+                                    automation, bulk SMS &amp; SMS API integration etc.</p>
                             </div>
                         </div>
 
