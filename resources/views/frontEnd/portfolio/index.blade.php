@@ -53,6 +53,7 @@ $schema = [
 <html lang="en">
 
 <head>
+    @include('partials.google-analytics')
     <!-- Meta -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
